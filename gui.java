@@ -9,22 +9,27 @@ public class gui extends Applet implements ActionListener {
 	Label radius = new Label("Radius in cm                          ");
 	Label umfang = new Label("Umfang                          ");
 	Label flaeche = new Label("Fläche                          ");
-	Button berechnen = new Button("Berechnen");
+	Button kreis = new Button("Kreis                  ");
 	TextField radiuszahl = new TextField(50);
+	Button wuerfel = new Button("Quadrat");
 	
 	Label Infos = new Label("                            ");
 	Label mittelpunkt = new Label(" ");
+	
+	boolean bolli;
 	
 	int x = 250;
 	int y = 250;
 	
 	public void init() {
 		
+		
 		setSize(500, 500);
 		
 		add(radius);
 		add(radiuszahl);
-		add(berechnen);
+		add(kreis);
+		add(wuerfel);
 		
 		add(radius2);
 		add(umfang);
@@ -40,17 +45,19 @@ public class gui extends Applet implements ActionListener {
 		setBackground(Color.lightGray);
 		radius.setBackground(Color.WHITE);
 		radiuszahl.setBackground(Color.WHITE);
-		berechnen.setBackground(Color.WHITE);
+		kreis.setBackground(Color.WHITE);
 		radius2.setBackground(Color.WHITE);
 		umfang.setBackground(Color.WHITE);
 		flaeche.setBackground(Color.WHITE);
 		Infos.setBackground(Color.WHITE);
 		
-		berechnen.addActionListener(this);
+		kreis.addActionListener(this);
+		wuerfel.addActionListener(this);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == berechnen){
+		if(e.getSource() == kreis){
+			bolli = false;
 		if(Integer.parseInt(radiuszahl.getText()) >= 0){
 			radius2.setText("Radius: " + radiuszahl.getText());
 			umfang.setText("Umfang: " + 2*Math.PI*Integer.parseInt(radiuszahl.getText()) + " cm");
@@ -67,12 +74,21 @@ public class gui extends Applet implements ActionListener {
 			umfang.setText("Umfang: ");
 			flaeche.setText("Fläche: ");
 		}
-		
 		}
-	
+		
+	if(e.getSource() == wuerfel) {
+		bolli = true;
+		repaint();
+	}
 	}
 	
 	public void paint(Graphics p) {
+		
+		if(bolli == false) {
 		p.drawOval(x, y, Integer.parseInt(radiuszahl.getText()), Integer.parseInt(radiuszahl.getText()));
+		}
+		if(bolli == true) {
+		p.drawRect(x, y, Integer.parseInt(radiuszahl.getText()), (Integer.parseInt(radiuszahl.getText())));
+		}
 	}
 }
