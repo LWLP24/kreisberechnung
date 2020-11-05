@@ -78,7 +78,18 @@ public class gui extends Applet implements ActionListener {
 		
 	if(e.getSource() == wuerfel) {
 		bolli = true;
+	if(Integer.parseInt(radiuszahl.getText()) >= 0) {
+		umfang.setText("Umfang: " + (4*Integer.parseInt(radiuszahl.getText()) + "cm"));
+		flaeche.setText("Fläche: " + (Integer.parseInt(radiuszahl.getText())*Integer.parseInt(radiuszahl.getText()) + "cm²"));
 		repaint();
+	}else {
+		add(Infos);
+		Infos.setText("Das geht nicht!                        ");
+		radiuszahl.setText("Das geht nicht! ");
+		radius2.setText("Radius: ");
+		umfang.setText("Umfang: ");
+		flaeche.setText("Fläche: ");
+	}
 	}
 	}
 	
