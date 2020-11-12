@@ -96,9 +96,11 @@ public class gui extends Applet implements ActionListener {
 	public void paint(Graphics p) {
 		
 		if(bolli == false) {
+			p.setColor(Color.GREEN);
 		p.drawOval(x, y, Integer.parseInt(radiuszahl.getText()), Integer.parseInt(radiuszahl.getText()));
 		}
 		if(bolli == true) {
+			p.setColor(Color.RED);
 		p.drawRect(x, y, Integer.parseInt(radiuszahl.getText()), (Integer.parseInt(radiuszahl.getText())));
 		}
 	}
