@@ -85,7 +85,7 @@ public class gui extends Applet implements ActionListener {
 	}else {
 		add(Infos);
 		Infos.setText("Das geht nicht!                        ");
-		radiuszahl.setText("Das geht nicht! ");
+		radiuszahl.setText("Das geht nicht!         ");
 		radius2.setText("Radius: ");
 		umfang.setText("Umfang: ");
 		flaeche.setText("Fläche: ");
@@ -99,9 +99,9 @@ public class gui extends Applet implements ActionListener {
 			p.setColor(Color.GREEN);
 		p.drawOval(x, y, Integer.parseInt(radiuszahl.getText()), Integer.parseInt(radiuszahl.getText()));
 		}
-		if(bolli == true) {
+		if(bolli) { /*oder: if(bolli == true)*/
 			p.setColor(Color.RED);
-		p.drawRect(x, y, Integer.parseInt(radiuszahl.getText()), (Integer.parseInt(radiuszahl.getText())));
+		p.fillRect(x, y, Integer.parseInt(radiuszahl.getText()), (Integer.parseInt(radiuszahl.getText())));
 		}
 	}
 }
